@@ -33,14 +33,19 @@ public class Gpu {
         return id;
     }
 
+    public LocalDate getTimestamp() {
+        return timestamp;
+    }
+
     public Gpu(Integer id, String name, String description, int frequency){
         this.id = id;
         this.name = name;
         this.frequency = frequency;
         this.description = description;
+        this.timestamp = LocalDate.now();
     }
 
-    public  static Gpu fromDto(GpuDTO gpuDTO){
+    public static Gpu fromDto(GpuDTO gpuDTO){
         return new Gpu(
                 gpuDTO.getId(),
                 gpuDTO.getName(),
@@ -48,4 +53,6 @@ public class Gpu {
                 gpuDTO.getFrequency()
         );
     }
+
+
 }
