@@ -2,7 +2,7 @@ package com.example.demo.services;
 
 import com.example.demo.models.dtos.AppUserDTO;
 import com.example.demo.models.entities.AppUser;
-import com.example.demo.repositories.UserRepository;
+import com.example.demo.repositories.AppUserRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -10,9 +10,9 @@ import java.util.stream.Collectors;
 
 @Service
 public class AppUserService {
-    private final UserRepository repository;
+    private final AppUserRepository repository;
 
-    public AppUserService(UserRepository repository) {
+    public AppUserService(AppUserRepository repository) {
         this.repository = repository;
     }
 
