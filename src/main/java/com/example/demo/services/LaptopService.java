@@ -1,35 +1,36 @@
 package com.example.demo.services;
 
-import com.example.demo.models.dtos.ComputerDTO;
-import com.example.demo.models.entities.Computer;
-import com.example.demo.repositories.ComputerRepository;
+
+import com.example.demo.models.dtos.LaptopDTO;
+import com.example.demo.models.entities.Laptop;
+import com.example.demo.repositories.LaptopRepository;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ComputerService {
-    private final ComputerRepository repository;
+public class LaptopService {
+    private final LaptopRepository repository;
 
-    public LaptopService(ComputerRepository repository) {
+    public LaptopService(LaptopRepository repository) {
         this.repository = repository;
     }
 
-    public ComputerDTO save(ComputerDTO computerDTO){
-        return ComputerDTO.fromEntity(repository.save(Computer.fromDto(computerDTO)));
+    public LaptopDTO save(LaptopDTO laptopDTO){
+        return LaptopDTO.fromEntity(repository.save(Laptop.fromDto(laptopDTO)));
     }
 
-    public List<ComputerDTO> findAll(){
-        return repository.findAll().stream().map(ComputerDTO::fromEntity).collect(Collectors.toList());
+    public List<LaptopDTO> findAll(){
+        return repository.findAll().stream().map(LaptopDTO::fromEntity).collect(Collectors.toList());
     }
 
-    public ComputerDTO findById(Integer id){
-        return ComputerDTO.fromEntity(repository.findById(id).orElseThrow(NoSuchFieldError::new));
+    public LaptopDTO findById(Integer id){
+        return LaptopDTO.fromEntity(repository.findById(id).orElseThrow(NoSuchFieldError::new));
     }
 
-    public ComputerDTO edit(ComputerDTO computerDTO){
-        return ComputerDTO.fromEntity(repository.save(Computer.fromDto(computerDTO)));
+    public LaptopDTO edit(LaptopDTO laptopDTO){
+        return LaptopDTO.fromEntity(repository.save(Laptop.fromDto(laptopDTO)));
     }
 
     public void delete(Integer id){
