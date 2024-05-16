@@ -9,10 +9,10 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class ComputerShopService {
+public class ComputerService {
     private final ComputerRepository repository;
 
-    public ComputerShopService(ComputerRepository repository) {
+    public ComputerService(ComputerRepository repository) {
         this.repository = repository;
     }
 
