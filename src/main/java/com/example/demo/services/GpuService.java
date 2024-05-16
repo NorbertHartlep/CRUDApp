@@ -7,10 +7,10 @@ import com.example.demo.repositories.GpuRepository;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class CpuService {
+public class GpuService {
     private final GpuRepository repository;
 
-    public CpuService(GpuRepository repository) {
+    public GpuService(GpuRepository repository) {
         this.repository = repository;
     }
 
