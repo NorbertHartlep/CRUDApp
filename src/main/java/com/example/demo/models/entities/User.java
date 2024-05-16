@@ -4,7 +4,6 @@ import com.example.demo.models.dtos.UserDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
-import jakarta.persistence.criteria.CriteriaBuilder;
 
 @Entity
 public class User {
@@ -37,7 +36,7 @@ public class User {
         this.admin = admin;
         this.password = password;
     }
-    public static User fromDto(UserDTO userDTO){
+    public static User fromDTO(UserDTO userDTO){
         return new User(
                 userDTO.getId(),
                 userDTO.getName(),
