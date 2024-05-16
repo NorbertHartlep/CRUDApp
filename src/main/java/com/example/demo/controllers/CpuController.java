@@ -14,8 +14,8 @@ public class CpuController {
     public CpuController(CpuService service){this.service =service;}
 
     @PostMapping
-    public ResponseEntity<CpuDTO> save(@RequestBody CpuDTO computerDTO){
-        return ResponseEntity.ok(service.save(computerDTO));
+    public ResponseEntity<CpuDTO> save(@RequestBody CpuDTO cpuDTO){
+        return ResponseEntity.ok(service.save(cpuDTO));
     }
 
     @GetMapping
@@ -29,8 +29,8 @@ public class CpuController {
     }
 
     @PutMapping
-    public ResponseEntity<CpuDTO> edit(@RequestBody CpuDTO computerDTO){
-        return ResponseEntity.ok(service.edit(computerDTO));
+    public ResponseEntity<CpuDTO> edit(@RequestBody CpuDTO cpuDTO){
+        return ResponseEntity.ok(service.edit(cpuDTO));
     }
 
     @DeleteMapping("/{id}")
