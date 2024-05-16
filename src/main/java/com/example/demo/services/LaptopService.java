@@ -9,7 +9,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 @Service
-public class LaptopService {
+public class ComputerService {
     private final ComputerRepository repository;
 
     public LaptopService(ComputerRepository repository) {

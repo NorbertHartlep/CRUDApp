@@ -1,7 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.dtos.ComputerDTO;
-import com.example.demo.services.LaptopService;
+import com.example.demo.services.ComputerService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -10,9 +10,9 @@ import java.util.List;
 
 @RestController
 public class ComputerController {
-    private final LaptopService service;
+    private final ComputerService service;
 
-    public ComputerController(LaptopService service) {
+    public ComputerController(ComputerService service) {
         this.service = service;
     }
 

@@ -43,7 +43,7 @@ public class ComputerDTO {
                 computer.getName(),
                 computer.getDescription(),
                 computer.getGpu(),
-                computer.getGpu()
+                computer.getCpu()
         );
     }
 }
