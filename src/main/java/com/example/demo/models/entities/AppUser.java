@@ -1,12 +1,12 @@
 package com.example.demo.models.entities;
 
-import com.example.demo.models.dtos.UserDTO;
+import com.example.demo.models.dtos.AppUserDTO;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
 @Entity
-public class User {
+public class AppUser {
    @Id
    @GeneratedValue
    private Integer id;
@@ -30,18 +30,18 @@ public class User {
         return password;
     }
 
-    public User(Integer id, String name, boolean admin, String password){
+    public AppUser(Integer id, String name, boolean admin, String password){
         this.id = id;
         this.name = name;
         this.admin = admin;
         this.password = password;
     }
-    public static User fromDTO(UserDTO userDTO){
-        return new User(
-                userDTO.getId(),
-                userDTO.getName(),
-                userDTO.isAdmin(),
-                userDTO.getPassword()
+    public static AppUser fromDTO(AppUserDTO appUserDTO){
+        return new AppUser(
+                appUserDTO.getId(),
+                appUserDTO.getName(),
+                appUserDTO.isAdmin(),
+                appUserDTO.getPassword()
         );
     }
 }

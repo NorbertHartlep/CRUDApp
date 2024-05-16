@@ -1,8 +1,8 @@
 package com.example.demo.models.dtos;
 
-import com.example.demo.models.entities.User;
+import com.example.demo.models.entities.AppUser;
 
-public class UserDTO {
+public class AppUserDTO {
     private Integer id;
     private String name;
     private boolean admin;
@@ -24,19 +24,19 @@ public class UserDTO {
         return password;
     }
 
-    public UserDTO(Integer id, String name, boolean admin, String password){
+    public AppUserDTO(Integer id, String name, boolean admin, String password){
         this.id = id;
         this.name = name;
         this.admin = admin;
         this.password = password;
     }
 
-    public static UserDTO fromEntity(User user){
-        return new UserDTO(
-                user.getId(),
-                user.getName(),
-                user.isAdmin(),
-                user.getPassword()
+    public static AppUserDTO fromEntity(AppUser appUser){
+        return new AppUserDTO(
+                appUser.getId(),
+                appUser.getName(),
+                appUser.isAdmin(),
+                appUser.getPassword()
         );
     }
 }
