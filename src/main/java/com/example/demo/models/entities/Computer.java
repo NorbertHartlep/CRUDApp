@@ -18,6 +18,9 @@ public class Computer {
     private String gpu;
     private String cpu;
 
+    public Computer() {
+    }
+
     public Integer getId() {
         return id;
     }

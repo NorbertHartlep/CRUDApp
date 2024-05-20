@@ -37,6 +37,9 @@ public class Gpu {
         return timestamp;
     }
 
+    public Gpu() {
+    }
+
     public Gpu(Integer id, String name, String description, int frequency){
         this.id = id;
         this.name = name;

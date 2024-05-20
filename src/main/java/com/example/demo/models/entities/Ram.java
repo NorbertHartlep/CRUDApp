@@ -15,6 +15,9 @@ public class Ram {
     private int frequency;
     private String description;
 
+    public Ram() {
+    }
+
     public Integer getId() {
         return id;
     }

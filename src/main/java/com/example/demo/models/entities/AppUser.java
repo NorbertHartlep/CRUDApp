@@ -14,6 +14,9 @@ public class AppUser {
    private boolean admin;
    private String password;
 
+    public AppUser() {
+    }
+
     public Integer getId() {
         return id;
     }

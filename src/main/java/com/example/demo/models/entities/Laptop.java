@@ -19,6 +19,9 @@ public class Laptop {
     private String gpu;
     private String cpu;
 
+    public Laptop() {
+    }
+
     public Integer getId() {
         return id;
     }

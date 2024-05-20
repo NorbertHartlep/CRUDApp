@@ -8,6 +8,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/motherboards")
 public class MotherboardController {
     private final MotherboardService service;
 

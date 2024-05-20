@@ -16,6 +16,9 @@ public class Cpu {
     private boolean haveIntegratedGPU;
     private double price;
 
+    public Cpu() {
+    }
+
     public Integer getId() { return id; }
 
     public String getName() { return name; }

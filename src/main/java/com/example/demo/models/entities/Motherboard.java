@@ -19,6 +19,9 @@ public class Motherboard {
     private List<String> availablePorts;
     private LocalDate timestamp;
 
+    public Motherboard() {
+    }
+
     public LocalDate getTimestamp() {
         return timestamp;
     }

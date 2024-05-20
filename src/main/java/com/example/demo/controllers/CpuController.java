@@ -1,6 +1,8 @@
 package com.example.demo.controllers;
 
+import com.example.demo.models.dtos.ComputerDTO;
 import com.example.demo.models.dtos.CpuDTO;
+import com.example.demo.services.ComputerService;
 import com.example.demo.services.CpuService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -8,10 +10,14 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@RestController
+@RequestMapping("/cpus")
 public class CpuController {
     private final CpuService service;
 
-    public CpuController(CpuService service){this.service =service;}
+    public CpuController(CpuService service) {
+        this.service = service;
+    }
 
     @PostMapping
     public ResponseEntity<CpuDTO> save(@RequestBody CpuDTO cpuDTO){
