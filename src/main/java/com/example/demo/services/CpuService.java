@@ -3,10 +3,12 @@ package com.example.demo.services;
 import com.example.demo.models.dtos.CpuDTO;
 import com.example.demo.models.entities.Cpu;
 import com.example.demo.repositories.CpuRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class CpuService {
     private final CpuRepository repository;
 

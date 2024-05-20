@@ -3,10 +3,12 @@ package com.example.demo.services;
 import com.example.demo.models.dtos.GpuDTO;
 import com.example.demo.models.entities.Gpu;
 import com.example.demo.repositories.GpuRepository;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.stream.Collectors;
 
+@Service
 public class GpuService {
     private final GpuRepository repository;
 
