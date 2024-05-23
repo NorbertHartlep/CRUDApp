@@ -6,6 +6,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+
 @Entity
 public class Cpu {
     @Id
@@ -15,6 +17,7 @@ public class Cpu {
     private int cores;
     private boolean haveIntegratedGPU;
     private double price;
+    private LocalDate timestamp;
 
     public Cpu() {
     }
@@ -35,6 +38,7 @@ public class Cpu {
         this.cores = cores;
         this.haveIntegratedGPU = haveIntegratedGPU;
         this.price = price;
+        this.timestamp = LocalDate.now();
     }
 
     public  static Cpu fromDto(CpuDTO cpuDTO){

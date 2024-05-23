@@ -47,6 +47,7 @@ public class Motherboard {
         this.name = name;
         this.description = description;
         this.availablePorts = availablePorts;
+        this.timestamp = LocalDate.now();
     }
 
     public static Motherboard fromDto (MotherboardDTO motherboardDTO){

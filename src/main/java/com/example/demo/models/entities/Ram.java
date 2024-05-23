@@ -5,6 +5,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Id;
 
+import java.time.LocalDate;
+
 @Entity
 public class Ram {
     @Id
@@ -14,6 +16,7 @@ public class Ram {
     private double price;
     private int frequency;
     private String description;
+    private LocalDate timestamp;
 
     public Ram() {
     }
@@ -44,6 +47,7 @@ public class Ram {
         this.price = price;
         this.frequency = frequency;
         this.description = description;
+        this.timestamp = LocalDate.now();
     }
 
     public static Ram fromDTO(RamDTO ramDTO){
