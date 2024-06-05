@@ -35,5 +35,11 @@ public class AppUserService {
     public void delete(Integer id){
         repository.deleteById(id);
     }
+
+    public AppUserDTO findByNameAndPassword(String name, String password) {
+        AppUser user = repository.findByNameAndPassword(name, password)
+                .orElseThrow(() -> new IllegalArgumentException("Invalid username or password"));
+        return AppUserDTO.fromEntity(user);
+    }
 }
 

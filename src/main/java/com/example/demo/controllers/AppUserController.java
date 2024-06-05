@@ -42,5 +42,15 @@ public class AppUserController {
     public void delete(@PathVariable Integer id){
         service.delete(id);
     }
+
+    @PostMapping("/login")
+    public ResponseEntity<AppUserDTO> login(@RequestParam String name, @RequestParam String password) {
+        try {
+            AppUserDTO appUserDTO = service.findByNameAndPassword(name, password);
+            return ResponseEntity.ok(appUserDTO);
+        } catch (IllegalArgumentException e) {
+            return ResponseEntity.status(401).body(null);
+        }
+    }
 }
 
