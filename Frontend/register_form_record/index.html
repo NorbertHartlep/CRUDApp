@@ -1,45 +1,47 @@
- <!DOCTYPE html>
- <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Signup</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <form autocomplete="off">
-            <div class="form__icon">
-                <img src="icon.png" class="icon">
-            </div>
-            <div class="form__input-container">
-                <input 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Signup</title>
+    <link rel="stylesheet" href="styles.css" /> 
+    <script src="../request_handler.js" defer></script>
+</head>
+<body>
+    <form id="signupForm" autocomplete="off">
+        <div class="form__icon">
+            <img src="icon.png" class="icon">
+        </div>
+        <div class="form__input-container">
+            <input 
                 id="user" 
                 aria-label="User" 
                 type="text" 
                 placeholder=" " 
             />
             <label for="user">User</label>
-            </div>
-            <div class="form__input-container">
-                <input 
+        </div>
+        <div class="form__input-container">
+            <input 
                 id="password" 
                 aria-label="Password" 
                 type="password" 
                 placeholder=" " 
             />
             <label for="password">Password</label>
-            <div class="form__input-container">
-                <input 
+        </div>
+        <div class="form__input-container">
+            <input 
                 id="repeat-password" 
                 aria-label="Repeat-Password" 
                 type="password" 
                 placeholder=" " 
             />
             <label for="repeat-password">Repeat Password</label>
-            </div>
-            <div class="form__spacer"></div>
-            <button>Signup</button>
-        </form>
-    </body>
- </html>
+        </div>
+        <div class="form__spacer"></div>
+        <button type="submit" id="signupButton">Signup</button>
+    </form> 
+</body>
+</html>

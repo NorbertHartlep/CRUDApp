@@ -1,37 +1,38 @@
- <!DOCTYPE html>
- <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Login</title>
-        <link rel="stylesheet" href="styles.css" />
-    </head>
-    <body>
-        <form autocomplete="off">
-            <div class="form__icon">
-                <img src="icon.png" class="icon">
-            </div>
-            <div class="form__input-container">
-                <input 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="../request_handler.js" defer></script>
+</head>
+<body>
+    <form id="loginForm" autocomplete="off">
+        <div class="form__icon">
+            <img src="icon.png" class="icon">
+        </div>
+        <div class="form__input-container">
+            <input 
                 id="user" 
                 aria-label="User" 
                 type="text" 
                 placeholder=" " 
             />
             <label for="user">User</label>
-            </div>
-            <div class="form__input-container">
-                <input 
+        </div>
+        <div class="form__input-container">
+            <input 
                 id="password" 
                 aria-label="Password" 
                 type="password" 
                 placeholder=" " 
             />
             <label for="password">Password</label>
-            </div>
-            <div class="form__spacer"></div>
-            <button>Login</button>
-        </form>
-    </body>
- </html>
+        </div>
+        <div class="form__spacer"></div>
+        <button type="submit" id="loginButton">Login</button>
+    </form>
+</body>
+</html>

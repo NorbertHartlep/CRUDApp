@@ -2,6 +2,9 @@ package com.example.demo;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.config.annotation.CorsRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 @SpringBootApplication
 public class ComputerShopApp {
@@ -11,8 +14,4 @@ public class ComputerShopApp {
 	}
 
 }
-/*
-dodawanie/odejmowanie elementow ze stanu
-kto kiedy dodal/usunal element
 
- */

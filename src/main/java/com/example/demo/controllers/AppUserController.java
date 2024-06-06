@@ -44,7 +44,7 @@ public class AppUserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AppUserDTO> login(@RequestParam String name, @RequestParam String password) {
+    public ResponseEntity<AppUserDTO> login(@RequestBody String name, @RequestBody String password) {
         try {
             AppUserDTO appUserDTO = service.findByNameAndPassword(name, password);
             return ResponseEntity.ok(appUserDTO);
