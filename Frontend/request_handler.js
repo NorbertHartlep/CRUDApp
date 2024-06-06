@@ -43,8 +43,10 @@ document.addEventListener('DOMContentLoaded', () => {
                     "password": loginPassword
                 });
                 console.log('Login Response:', response);
+                window.location.href='../shop_page/storehage.html';
             } catch (error) {
                 console.error('Login Error:', error);
+
             }
         });
     }
@@ -80,6 +82,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     "password":registerPassword
                 });
                 console.log('Signup Response:', response);
+                window.location.href='../shop_page/storehage.html';
             } catch (error) {
                 console.error('Signup Error:', error);
             }
