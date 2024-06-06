@@ -24,6 +24,7 @@ async function makeApiRequest(method, endpoint, body = null) {
     }
 }
 
+//LOGIN
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     if (loginForm) {
@@ -38,8 +39,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
             try {
                 const response = await makeApiRequest('POST', '/users/login', {
-                    name: loginUsername,
-                    password: loginPassword
+                    "name": loginUsername,
+                    "password": loginPassword
                 });
                 console.log('Login Response:', response);
             } catch (error) {
@@ -49,12 +50,16 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
+//REGISTER
 document.addEventListener('DOMContentLoaded', () => {
     const signupForm = document.getElementById('signupForm');
     if (signupForm) {
         signupForm.addEventListener('submit', async (event) => {
             event.preventDefault();
+            var adminCheckbox = document.getElementById("adminCheckbox");
 
+            
+            var isAdmin = adminCheckbox.checked;
             const registerUsername = document.getElementById('user').value;
             const registerPassword = document.getElementById('password').value;
             const registerRepeatPassword = document.getElementById('repeat-password').value;
@@ -71,7 +76,7 @@ document.addEventListener('DOMContentLoaded', () => {
             try {
                 const response = await makeApiRequest('POST', '/users', {
                     "name":registerUsername,
-                    "admin":false,
+                    "admin":isAdmin,
                     "password":registerPassword
                 });
                 console.log('Signup Response:', response);

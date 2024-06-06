@@ -1,6 +1,7 @@
 package com.example.demo.controllers;
 
 import com.example.demo.models.dtos.AppUserDTO;
+import com.example.demo.models.entities.LoginRequest;
 import com.example.demo.services.AppUserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -44,9 +45,9 @@ public class AppUserController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<AppUserDTO> login(@RequestBody String name, @RequestBody String password) {
+    public ResponseEntity<AppUserDTO> login(@RequestBody LoginRequest loginRequest) {
         try {
-            AppUserDTO appUserDTO = service.findByNameAndPassword(name, password);
+            AppUserDTO appUserDTO = service.findByNameAndPassword(loginRequest.getName(), loginRequest.getPassword());
             return ResponseEntity.ok(appUserDTO);
         } catch (IllegalArgumentException e) {
             return ResponseEntity.status(401).body(null);
