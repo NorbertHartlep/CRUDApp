@@ -89,3 +89,28 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+//SPRECYZOWANE REQUESTY
+async function getMotherboards(method, body = null){
+        makeApiRequest(method, '/motherboards', body);
+}
+
+async function getGpus(method, body = null){
+    makeApiRequest(method, '/gpus', body);
+}
+
+async function getCpus(method, body = null){
+    makeApiRequest(method, '/cpus', body);
+}
+
+async function getRams(method, body = null){
+    makeApiRequest(method, '/rams', body);
+}
+
+async function getLaptops(method, body = null){
+    makeApiRequest(method, '/laptops', body);
+}
+
+async function getComputers(method, body = null){
+    makeApiRequest(method, '/computers', body);
+}
