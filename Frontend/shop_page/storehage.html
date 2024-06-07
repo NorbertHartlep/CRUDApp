@@ -2,6 +2,8 @@
 <html lang="pl">
 
 <head>
+    <script src="storehage_script.js" defer> 
+</script><script src="../request_handler.js" defer> </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Magazyn</title>
@@ -52,7 +54,7 @@
                 <input type="text" id="cpu-laptops" placeholder="CPU">
                 <input type="text" id="gpu-laptops" placeholder="GPU">
                 <input type="text" id="price-laptops" placeholder="Cena">
-                <button onclick="addProduct('laptops')" id="laptop-adder">Dodaj</button>
+                <button id="laptop-adder">Dodaj</button>
             </div>
         </div>
         <div>
@@ -66,7 +68,7 @@
                 <input type="text" id="cpu-computers" placeholder="CPU">
                 <input type="text" id="gpu-computers" placeholder="GPU">
                 <input type="text" id="price-computers" placeholder="Cena">
-                <button onclick="addProduct('computers')" id="computer-adder">Dodaj</button>
+                <button id="computer-adder">Dodaj</button>
             </div>
         </div>
         <div>
@@ -79,7 +81,7 @@
                 <input type="text" id="description-motherboards" placeholder="Opis">
                 <input type="text" id="ports-motherboards" placeholder="Dostępne Porty">
                 <input type="text" id="price-motherboards" placeholder="Cena">
-                <button onclick="addProduct('motherboards')" id="motherboard-adder">Dodaj</button>
+                <button id="motherboard-adder">Dodaj</button>
             </div>
         </div>
         <div>
@@ -92,7 +94,7 @@
                 <input type="text" id="description-gpus" placeholder="Opis">
                 <input type="text" id="frequency-gpus" placeholder="Częstotliwość">
                 <input type="text" id="price-gpus" placeholder="Cena">
-                <button onclick="addProduct('gpus')" id="gpu-adder">Dodaj</button>
+                <button id="gpu-adder">Dodaj</button>
             </div>
         </div>
         <div>
@@ -105,7 +107,7 @@
                 <input type="text" id="description-rams" placeholder="Opis">
                 <input type="text" id="frequency-rams" placeholder="Częstotliwość">
                 <input type="text" id="price-rams" placeholder="Cena">
-                <button onclick="addProduct('rams')" id="ram-adder">Dodaj</button>
+                <button id="ram-adder">Dodaj</button>
             </div>
         </div>
         <div>
@@ -119,7 +121,7 @@
                 <input type="text" id="cores-cpus" placeholder="Rdzenie">
                 <input type="text" placeholder="Zintegrowane GPU?" disabled> <input type="checkbox" id="integratedgpu-cpus">
                 <input type="text" id="price-cpus" placeholder="Cena">
-                <button onclick="addProduct('cpus')" id="cpu-adder">Dodaj</button>
+                <button id="cpu-adder">Dodaj</button>
             </div>
         </div>
     </div>
@@ -146,8 +148,7 @@
 </main>
 <footer>
 </footer>
-<script src="storehage_script.js"> 
-</script><script src="../request_handler.js" defer> </script>
+
 </body>
 
 </html>
