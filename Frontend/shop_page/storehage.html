@@ -9,11 +9,13 @@
     <style>
         .buttons div {
             margin-bottom: 10px;
+            text-align: center;
         }
 
-        .add-button {
+        .add-button, .edit-button, .remove-button {
             display: block;
             margin-top: 5px;
+            width: 90%;
         }
 
         .form-container {
@@ -42,70 +44,82 @@
         <div>
             <button id="btn-laptops" onclick="sortProductsByCategory('laptops')">Laptopy</button>
             <button id="btn-add-laptops" class="add-button">+</button>
+            <button id="btn-edit-laptops" class="edit-button">E</button>
+            <button id="btn-remove-laptops" class="remove-button">-</button>
             <div class="form-container" id="form-laptops">
                 <input type="text" id="name-laptops" placeholder="Nazwa">
                 <input type="text" id="description-laptops" placeholder="Opis">
                 <input type="text" id="cpu-laptops" placeholder="CPU">
                 <input type="text" id="gpu-laptops" placeholder="GPU">
                 <input type="text" id="price-laptops" placeholder="Cena">
-                <button onclick="addProduct('laptops')">Dodaj</button>
+                <button onclick="addProduct('laptops')" id="laptop-adder">Dodaj</button>
             </div>
         </div>
         <div>
             <button id="btn-computers" onclick="sortProductsByCategory('computers')">Komputery</button>
             <button id="btn-add-computers" class="add-button">+</button>
+            <button id="btn-edit-computers" class="edit-button">E</button>
+            <button id="btn-remove-computers" class="remove-button">-</button>
             <div class="form-container" id="form-computers">
                 <input type="text" id="name-computers" placeholder="Nazwa">
                 <input type="text" id="description-computers" placeholder="Opis">
                 <input type="text" id="cpu-computers" placeholder="CPU">
                 <input type="text" id="gpu-computers" placeholder="GPU">
                 <input type="text" id="price-computers" placeholder="Cena">
-                <button onclick="addProduct('computers')">Dodaj</button>
+                <button onclick="addProduct('computers')" id="computer-adder">Dodaj</button>
             </div>
         </div>
         <div>
             <button id="btn-motherboards" onclick="sortProductsByCategory('motherboards')">Płyty główne</button>
             <button id="btn-add-motherboards" class="add-button">+</button>
+            <button id="btn-edit-motherboards" class="edit-button">E</button>
+            <button id="btn-remove-motherboards" class="remove-button">-</button>
             <div class="form-container" id="form-motherboards">
                 <input type="text" id="name-motherboards" placeholder="Nazwa">
                 <input type="text" id="description-motherboards" placeholder="Opis">
                 <input type="text" id="ports-motherboards" placeholder="Dostępne Porty">
                 <input type="text" id="price-motherboards" placeholder="Cena">
-                <button onclick="addProduct('motherboards')">Dodaj</button>
+                <button onclick="addProduct('motherboards')" id="motherboard-adder">Dodaj</button>
             </div>
         </div>
         <div>
             <button id="btn-gpus" onclick="sortProductsByCategory('gpus')">GPU</button>
             <button id="btn-add-gpus" class="add-button">+</button>
+            <button id="btn-edit-gpus" class="edit-button">E</button>
+            <button id="btn-remove-gpus" class="remove-button">-</button>
             <div class="form-container" id="form-gpus">
                 <input type="text" id="name-gpus" placeholder="Nazwa">
                 <input type="text" id="description-gpus" placeholder="Opis">
                 <input type="text" id="frequency-gpus" placeholder="Częstotliwość">
                 <input type="text" id="price-gpus" placeholder="Cena">
-                <button onclick="addProduct('gpus')">Dodaj</button>
+                <button onclick="addProduct('gpus')" id="gpu-adder">Dodaj</button>
             </div>
         </div>
         <div>
             <button id="btn-rams" onclick="sortProductsByCategory('rams')">RAM</button>
             <button id="btn-add-rams" class="add-button">+</button>
+            <button id="btn-edit-rams" class="edit-button">E</button>
+            <button id="btn-remove-rams" class="remove-button">-</button>
             <div class="form-container" id="form-rams">
                 <input type="text" id="name-rams" placeholder="Nazwa">
                 <input type="text" id="description-rams" placeholder="Opis">
                 <input type="text" id="frequency-rams" placeholder="Częstotliwość">
                 <input type="text" id="price-rams" placeholder="Cena">
-                <button onclick="addProduct('rams')">Dodaj</button>
+                <button onclick="addProduct('rams')" id="ram-adder">Dodaj</button>
             </div>
         </div>
         <div>
             <button id="btn-cpus" onclick="sortProductsByCategory('cpus')">CPU</button>
             <button id="btn-add-cpus" class="add-button">+</button>
+            <button id="btn-edit-cpus" class="edit-button">E</button>
+            <button id="btn-remove-cpus" class="remove-button">-</button>
             <div class="form-container" id="form-cpus">
                 <input type="text" id="name-cpus" placeholder="Nazwa">
                 <input type="text" id="description-cpus" placeholder="Opis">
                 <input type="text" id="cores-cpus" placeholder="Rdzenie">
                 <input type="text" placeholder="Zintegrowane GPU?" disabled> <input type="checkbox" id="integratedgpu-cpus">
                 <input type="text" id="price-cpus" placeholder="Cena">
-                <button onclick="addProduct('cpus')">Dodaj</button>
+                <button onclick="addProduct('cpus')" id="cpu-adder">Dodaj</button>
             </div>
         </div>
     </div>
@@ -132,90 +146,8 @@
 </main>
 <footer>
 </footer>
-<script>
-    document.addEventListener('DOMContentLoaded', (event) => {
-        // Load products from localStorage on page load
-        loadProducts();
-
-        document.querySelectorAll('.add-button').forEach(button => {
-            button.addEventListener('click', () => {
-                const formId = 'form-' + button.id.split('-')[2];
-                const form = document.getElementById(formId);
-                form.style.display = form.style.display === 'none' || form.style.display === '' ? 'block' : 'none';
-            });
-        });
-    });
-
-    function addProduct(category) {
-        const name = document.getElementById('name-' + category)?.value || '';
-        const description = document.getElementById('description-' + category)?.value || '';
-        const cpu = document.getElementById('cpu-' + category)?.value || '';
-        const gpu = document.getElementById('gpu-' + category)?.value || '';
-        const ports = document.getElementById('ports-' + category)?.value || '';
-        const frequency = document.getElementById('frequency-' + category)?.value || '';
-        const cores = document.getElementById('cores-' + category)?.value || '';
-        const integratedgpu = document.getElementById('integratedgpu-' + category)?.checked ? 'Tak' : 'Nie';
-        const price = document.getElementById('price-' + category)?.value || '';
-
-        if (name && description && price) {
-            const products = JSON.parse(localStorage.getItem('products')) || [];
-            const product = { category, name, description, cpu, gpu, ports, frequency, cores, integratedgpu, price };
-            products.push(product);
-            localStorage.setItem('products', JSON.stringify(products));
-
-            appendProductToTable(product);
-
-            // Reset and hide the form
-            document.getElementById('name-' + category).value = '';
-            document.getElementById('description-' + category).value = '';
-            if (document.getElementById('cpu-' + category)) document.getElementById('cpu-' + category).value = '';
-            if (document.getElementById('gpu-' + category)) document.getElementById('gpu-' + category).value = '';
-            if (document.getElementById('ports-' + category)) document.getElementById('ports-' + category).value = '';
-            if (document.getElementById('frequency-' + category)) document.getElementById('frequency-' + category).value = '';
-            if (document.getElementById('cores-' + category)) document.getElementById('cores-' + category).value = '';
-            if (document.getElementById('integratedgpu-' + category)) document.getElementById('integratedgpu-' + category).checked = false;
-            document.getElementById('price-' + category).value = '';
-            document.getElementById('form-' + category).style.display = 'none';
-        } else {
-            alert('Proszę wypełnić wszystkie wymagane pola.');
-        }
-    }
-
-    function appendProductToTable(product) {
-        const tableBody = document.getElementById('product-table-body');
-        const newRow = document.createElement('tr');
-
-        newRow.innerHTML = `
-            <td>${product.category.charAt(0).toUpperCase() + product.category.slice(1)}</td>
-            <td>${product.name}</td>
-            <td>${product.description}</td>
-            <td>${product.cpu}</td>
-            <td>${product.gpu}</td>
-            <td>${product.ports}</td>
-            <td>${product.frequency} MHz</td>
-            <td>${product.cores}</td>
-            <td>${product.integratedgpu}</td>
-            <td>${product.price} zł</td>
-        `;
-
-        tableBody.appendChild(newRow);
-    }
-
-    function loadProducts() {
-        const products = JSON.parse(localStorage.getItem('products')) || [];
-        products.forEach(product => appendProductToTable(product));
-    }
-
-    function sortProductsByCategory(category) {
-        const products = JSON.parse(localStorage.getItem('products')) || [];
-        const filteredProducts = products.filter(product => product.category === category);
-        filteredProducts.sort((a, b) => a.name.localeCompare(b.name));
-
-        const tableBody = document.getElementById('product-table-body');
-        tableBody.innerHTML = '';
-        filteredProducts.forEach(product => appendProductToTable(product));
-    }
-</script>
+<script src="storehage_script.js"> 
+</script><script src="../request_handler.js" defer> </script>
 </body>
 
 </html>
