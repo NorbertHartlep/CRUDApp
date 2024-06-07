@@ -114,3 +114,57 @@ async function getLaptops(method, body = null){
 async function getComputers(method, body = null){
     makeApiRequest(method, '/computers', body);
 }
+
+
+function updateTable(products) {
+    const tableBody = document.getElementById('product-table-body');
+    tableBody.innerHTML = ''; // Clear the current table contents
+
+    products.forEach(product => {
+        const row = document.createElement('tr');
+
+        const nameCell = document.createElement('td');
+        nameCell.textContent = product.name;
+        row.appendChild(nameCell);
+
+        const descriptionCell = document.createElement('td');
+        descriptionCell.textContent = product.description;
+        row.appendChild(descriptionCell);
+
+        const priceCell = document.createElement('td');
+        priceCell.textContent = product.price + ' zł';
+        row.appendChild(priceCell);
+
+        tableBody.appendChild(row);
+    });
+}
+
+document.getElementById('btn-laptops').addEventListener('click', async () => {
+    const products = await getLaptops('GET');
+    updateTable(products);
+});
+
+document.getElementById('btn-computers').addEventListener('click', async () => {
+    const products = await getComputers('GET');
+    updateTable(products);
+});
+
+document.getElementById('btn-motherboards').addEventListener('click', async () => {
+    const products = await getMotherboards('GET');
+    updateTable(products);
+});
+
+document.getElementById('btn-gpus').addEventListener('click', async () => {
+    const products = await getGpus('GET');
+    updateTable(products);
+});
+
+document.getElementById('btn-rams').addEventListener('click', async () => {
+    const products = await getRams('GET');
+    updateTable(products);
+});
+
+document.getElementById('btn-cpus').addEventListener('click', async () => {
+    const products = await getCpus('GET');
+    updateTable(products);
+});
