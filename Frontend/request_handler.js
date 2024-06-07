@@ -115,10 +115,10 @@ async function getComputers(method, body = null){
     makeApiRequest(method, '/computers', body);
 }
 
-
+//UPDATOWANIE TABELKI PO KLIKNIECIU PRZYCISKU
 function updateTable(products) {
     const tableBody = document.getElementById('product-table-body');
-    tableBody.innerHTML = ''; // Clear the current table contents
+    tableBody.innerHTML = '';
 
     products.forEach(product => {
         const row = document.createElement('tr');
@@ -139,6 +139,7 @@ function updateTable(products) {
     });
 }
 
+//PRZYCISKI ODPOWIADAJACE ZA WYSWIETLANIE KONKRETNEJ KATEGORII
 document.getElementById('btn-laptops').addEventListener('click', async () => {
     const products = await getLaptops('GET');
     updateTable(products);
@@ -166,5 +167,36 @@ document.getElementById('btn-rams').addEventListener('click', async () => {
 
 document.getElementById('btn-cpus').addEventListener('click', async () => {
     const products = await getCpus('GET');
+    updateTable(products);
+});
+
+//PRZYCISKI DO DODAWANIA KONKRETNYCH ITEMOW
+document.getElementById('btn-add-laptops').addEventListener('click', async () => {
+    const products = await getLaptops('POST');
+    updateTable(products);
+});
+
+document.getElementById('btn-add-computers').addEventListener('click', async () => {
+    const products = await getComputers('POST');
+    updateTable(products);
+});
+
+document.getElementById('btn-add-motherboards').addEventListener('click', async () => {
+    const products = await getMotherboards('POST');
+    updateTable(products);
+});
+
+document.getElementById('btn-add-gpus').addEventListener('click', async () => {
+    const products = await getGpus('POST');
+    updateTable(products);
+});
+
+document.getElementById('btn-add-rams').addEventListener('click', async () => {
+    const products = await getRams('POST');
+    updateTable(products);
+});
+
+document.getElementById('btn-add-cpus').addEventListener('click', async () => {
+    const products = await getCpus('POST');
     updateTable(products);
 });

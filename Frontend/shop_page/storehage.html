@@ -6,6 +6,16 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Strona Produktów</title>
     <link rel="stylesheet" href="styles.css">
+    <style>
+        .buttons div {
+            margin-bottom: 10px; 
+        }
+
+        .add-button {
+            display: block;
+            margin-top: 5px; 
+        }
+    </style>
 </head>
 
 <body>
@@ -14,12 +24,30 @@
 </header>
 <nav>
     <div class="buttons">
-        <button id="btn-laptops">Laptopy</button>
-        <button id="btn-computers">Komputery</button>
-        <button id="btn-motherboards">Motherboard</button>
-        <button id="btn-gpus">GPU</button>
-        <button id="btn-rams">RAM</button>
-        <button id="btn-cpus">CPU</button>
+        <div>
+            <button id="btn-laptops">Laptopy</button>
+            <button id="btn-add-laptops" class="add-button">+</button>
+        </div>
+        <div>
+            <button id="btn-computers">Komputery</button>
+            <button id="btn-add-computers" class="add-button">+</button>
+        </div>
+        <div>
+            <button id="btn-motherboards">Motherboard</button>
+            <button id="btn-add-motherboards" class="add-button">+</button>
+        </div>
+        <div>
+            <button id="btn-gpus">GPU</button>
+            <button id="btn-add-gpus" class="add-button">+</button>
+        </div>
+        <div>
+            <button id="btn-rams">RAM</button>
+            <button id="btn-add-rams" class="add-button">+</button>
+        </div>
+        <div>
+            <button id="btn-cpus">CPU</button>
+            <button id="btn-add-cpus" class="add-button">+</button>
+        </div>
     </div>
 </nav>
 <main>
@@ -47,7 +75,8 @@
 </main>
 <footer>
 </footer>
-<script src="script.js"></script>
+<script src="../request_handler.js"></script>
 </body>
 
 </html>
+
